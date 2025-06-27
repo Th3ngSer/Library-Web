@@ -1,0 +1,35 @@
+.book-card.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: #562b00eb;
+  width: 800px;
+  height: 500px;
+  z-index: 2;
+  position: absolute;
+  margin-left: 20%;
+  margin-top: 5%;
+}
+.book-card.book-card.show .book-details {
+  color: white;
+}
+
+.book-image.show {
+  width: 300px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.book-image.show img {
+  width: 100%;
+  height: auto;
+  border-radius: 0px 0px 0px 0px;
+}
+
+.book-card.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

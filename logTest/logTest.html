@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="logtest.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Toggle Buttons -->
+      <div class="toggle-container">
+        <button id="toggle-login" class="active">Login</button>
+        <button id="toggle-signup">Signup</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" class="form active">
+        <h2>Hello</h2>
+        <input type="text" name="username" placeholder="Username" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <input type="submit" value="Log in" id="submit1" />
+      </form>
+
+      <!-- Signup Form -->
+      <form
+        method="post"
+        action="https://script.google.com/macros/s/AKfycbzyim5Gom8A8s5EHGgCTv9OPZqJ_Hoo5sTO_Gk-EYcM4TaUH97CfeAcrpD3zhpui9Y/exec"
+        name="contact-form"
+        class="signup-form"
+      >
+        <h4>Fill your Info</h4>
+        <input type="text" name="Username" placeholder="Name" />
+        <input type="text" name="Password" placeholder="Number" />
+        <input type="submit" value="Submit" id="submit" />
+      </form>
+    </div>
+
+    <script src="logtest.js"></script>
+  </body>
+</html>
+<!-- <a href="../testBook/index.html"></a> -->

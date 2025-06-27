@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login and Sign-Up ad</title>
+    <style>
+      /* Body styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-image: url("../../picBook/backLogin.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      #formTitle {
+        color: rgb(252, 249, 249);
+      }
+      #username {
+        width: 500px;
+      }
+      #password {
+        width: 500px;
+      }
+      #confirmPassword {
+        width: 500px;
+      }
+      #pinCode {
+        width: 500px;
+      }
+      #submitButton {
+        width: 500px;
+      }
+      /* Login container styles */
+      .login-container {
+        padding: 30px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 750px;
+        background-color: transparent;
+        text-align: center;
+      }
+
+      /* Title styles */
+      .login-container h2 {
+        margin-bottom: 20px;
+        color: #ffffff;
+      }
+
+      .login-container label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 8px;
+        text-align: left;
+      }
+
+      .login-container input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 20px;
+      }
+
+      /* Button styles */
+      .login-container button {
+        width: 100%;
+        padding: 12px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      .login-container button:hover {
+        background: #0056b3;
+      }
+
+      /* Toggle message styles */
+      #toggleMessage {
+        margin-top: 10px;
+        font-size: 20px;
+        color: #ffffff;
+        cursor: pointer;
+      }
+
+      #toggleMessage span {
+        text-decoration: underline;
+      }
+
+      #toggleMessage span:hover {
+        color: #0056b3;
+      }
+
+      /* Responsive design for smaller screens */
+      @media (max-width: 480px) {
+        .login-container {
+          padding: 20px;
+        }
+
+        .login-container h2 {
+          font-size: 20px;
+        }
+
+        .login-container button {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2 id="formTitle">Login</h2>
+      <form id="authForm" onsubmit="handleAuth(event)">
+        <label for="username"><b>Admin</b></label>
+        <input
+          type="text"
+          id="username"
+          name="admin"
+          placeholder="Enter your admin username"
+          required
+        />
+        <label for="password"><b>Password</b></label>
+        <input
+          type="password"
+          id="password"
+          name="passwordAd"
+          placeholder="Enter your password"
+          required
+        />
+
+        <div id="confirmPasswordField" style="display: none">
+          <label for="confirmPassword"><b>Confirm Password</b></label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm your password"
+          />
+        </div>
+
+        <div id="pinCodeField" style="display: none">
+          <label for="pinCode"><b>Admin PIN Code</b></label>
+          <input
+            type="password"
+            id="pinCode"
+            name="pinCode"
+            placeholder="Enter Admin PIN Code"
+          />
+        </div>
+
+        <button type="submit" id="submitButton">Log in</button>
+      </form>
+      <p id="toggleMessage">
+        Don't have an account? <span onclick="toggleForm()">Sign Up</span>
+      </p>
+    </div>
+
+    <script src="adminLog.js"></script>
+  </body>
+</html>

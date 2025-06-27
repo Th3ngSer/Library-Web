@@ -1,0 +1,388 @@
+/* ... (previous CSS remains the same until search section) ... */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  /* font-size: 62.5%; */
+}
+.container-width {
+  max-width: 2048px;
+  margin: 0 auto;
+}
+
+.nav-head {
+  /* background-color: rgba(255, 255, 255, 0.83); */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 100px;
+  /* height: 200px; */
+}
+.bookWeb {
+  font-size: 60px;
+  color: white;
+  font-weight: bold;
+}
+.nav-items {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav-items a {
+  color: rgb(255, 255, 255);
+}
+.nav-items a:hover {
+  color: rgb(255, 217, 0);
+}
+
+.icon-nav {
+  width: 40px;
+  height: 40px;
+  /* background-color: rgb(255, 255, 255); */
+  /* border: 1px solid rgb(0, 0, 0); */
+  border-radius: 50%;
+  color: rgb(2, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+}
+
+.hero-section {
+  height: 700px;
+  background-color: #651a1a;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-image: url("../../../bookWeb/picBook/back.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.icon-nav i {
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+}
+.icon-nav i:hover {
+  font-size: 40px;
+  color: gold;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.b_section {
+  margin-bottom: 200px;
+}
+.hero-section h1 {
+  font-size: 2.5rem;
+  color: #f9f9f9;
+  margin-bottom: 2rem;
+}
+
+.search-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-box {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#searchInput {
+  flex: 1;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+  border-color: #2c3e50;
+  outline: none;
+}
+
+#searchCategory {
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 1rem;
+}
+
+#searchButton {
+  padding: 0.8rem 1.5rem;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+  background-color: #34495e;
+}
+
+.add {
+  background-color: #3e1c00;
+  color: gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 30px;
+  font-family: "Permanent Marker", serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  border: 1px solid gold;
+}
+.add::before,
+.add::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: gold; /* Line color */
+  margin: 0 10px;
+}
+
+/* *************book section*********** */
+
+/* Add these styles to your b.css file */
+
+.bc_card {
+  background-color: #3e1c00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 30px;
+  position: relative;
+}
+
+.books-container {
+  background-color: rgba(207, 183, 183, 0.37);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  border-radius: 15px;
+  padding: 1rem;
+  /* margin: auto; */
+  justify-content: center;
+  align-items: start;
+  /* position: relative; */
+  height: 840px;
+  overflow-y: scroll;
+}
+.books-container::-webkit-scrollbar {
+  width: 10px;
+  height: 0.5rem;
+}
+.books-container::-webkit-scrollbar-track {
+  background-color: rgb(19, 15, 15);
+  border-radius: 10px;
+  /* box-shadow: 1rem 1rem 2rem solid red; */
+}
+
+.books-container::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.books-container::-webkit-scrollbar-thumb:hover {
+  cursor: grab;
+  background-color: rgb(16, 16, 18);
+}
+.books-container::-webkit-scrollbar-thumb:active {
+  cursor: grabbing;
+  background-color: hsl(79, 100%, 50%);
+}
+
+.book-card {
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.319);
+  border-radius: 12px;
+  width: 300px;
+  height: auto;
+  height: 420px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  /* overflow: hidden;   */
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.book-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.book-details {
+  font-family: Arial, sans-serif; /* Clean font */
+}
+
+.book-title {
+  font-size: 1rem; /* Larger font size for title */
+  font-weight: bold; /* Bold title */
+  margin: 0.5rem 0; /* Spacing around the title */
+  text-align: center; /* Center align text */
+}
+
+.book-author {
+  font-size: 1rem; /* Slightly larger font size for author */
+  font-weight: 300; /* Lighter font weight */
+  margin: 0.3rem 0; /* Slight margin for spacing */
+  text-align: center; /* Center align text */
+}
+
+.book-rating i {
+  color: gold; /* Gold stars for rating */
+  font-size: 0.9rem; /* Larger star size */
+}
+
+.book-rating span {
+  font-size: 0.9rem; /* Larger font for reviews count */
+  margin-left: 0.3rem;
+}
+
+.book-description {
+  font-size: 1rem; /* Larger description font */
+  margin: 0.5rem 0;
+  text-align: justify; /* Justify text for better readability */
+}
+
+.add-to-cart-btn {
+  background-color: #f1c40f; /* Bright yellow button */
+  color: black; /* Black text on button */
+  padding: 0.5rem; /* Padding for button */
+  font-size: 1rem; /* Larger button font size */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%; /* Full width of card */
+  margin-top: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-to-cart-btn i {
+  margin-right: 0.5rem;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #f39c12;
+}
+
+.foot_container {
+  height: 130px;
+  background-color: #2c3e50; /* background-color: #3e1c00; */
+  border-top: 1px solid gold;
+  padding: 80px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.left p {
+  color: #3498db;
+  font-size: 30px;
+}
+.mid h2 {
+  color: #3498db;
+  font-size: 18px;
+}
+.facebook a {
+  color: rgb(252, 252, 252);
+  margin: 10px 0;
+  font-size: 15px;
+}
+.facebook a:hover {
+  color: #3498db;
+}
+.facebook {
+  margin: 10px 0;
+}
+.instagram {
+  margin: 10px 0;
+}
+.instagram a {
+  color: rgb(255, 254, 254);
+  margin: 10px 0;
+  font-size: 15px;
+}
+.instagram a:hover {
+  color: #3498db;
+}
+.right h2 {
+  color: #3498db;
+  font-size: 18px;
+}
+.right p {
+  color: rgb(255, 254, 254);
+  font-size: 15px;
+  margin: 10px;
+}
+.right p:hover {
+  color: #3498db;
+}
+.seeMore {
+  background-color: #3e1c00;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.seeMore button {
+  background-color: gold;
+  padding: 5px 20px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+.seeMore button:hover {
+  background-color: rgba(255, 217, 0, 0.705);
+}
+.copyright {
+  text-align: center;
+  /* margin-bottom: 10px; */
+  padding: 20px;
+  background-color: #2c3e50;
+  border-top: 1px solid #34495e;
+  font-size: 14px;
+  color: #a3aeb4;
+}

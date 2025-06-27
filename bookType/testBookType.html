@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookStore</title>
+    <link rel="stylesheet" href="../testBook/b.css" />
+    <link rel="stylesheet" href="../testBook/show.css" />
+    <link rel="stylesheet" href="../testBook/newArr.css" />
+    <link rel="stylesheet" href="book.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/353aaa4da4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main>
+      <section class="hero-section container-width">
+        <header>
+          <div class="nav-head">
+            <div class="bookWeb">BookWeb</div>
+            <div class="nav-items">
+              <a href="../testBook/index.html" class="active">Home</a>
+              <a href="../testBook/newArrive.html">New Arrivals</a>
+              <a href="../testBook/abouUs.html">About Us</a>
+            </div>
+          </div>
+        </header>
+        <div class="c_tit">
+          <div class="title"><p>Khmer</p></div>
+          <div class="pop1" id="book">Recommended Books</div>
+        </div>
+        <div class="slider">
+          <div class="slides">
+            <img src="../picBook/book1.png" alt="book" />
+            <img src="../picBook/book2.png" alt="book" />
+            <img src="../picBook/book3.png" alt="book" />
+            <img src="../picBook/book4.png" alt="book" />
+            <img src="../picBook/book5.png" alt="book" />
+            <img src="../picBook/book6.png" alt="book" />
+            <img src="../picBook/book7.png" alt="book" />
+          </div>
+        </div>
+      </section>
+      <div class="mid-sec">
+        <div class="newArrr container-width">Khmer Book</div>
+        <div class="bc_card container-width">
+          <section class="books-container" id="booksContainer">
+            <!-- Book cards will be dynamically added here -->
+          </section>
+        </div>
+      </div>
+      <div class="seeMore container-width">
+        <button id="seeMoreButton">See More</button>
+      </div>
+    </main>
+
+    <div class="footer">
+      <div class="foot_container container-width">
+        <div class="left">
+          <p>BookWEB</p>
+        </div>
+        <div class="mid">
+          <h2>Social media</h2>
+          <div class="facebook">
+            <a
+              href="https://web.facebook.com/Cristiano/?_rdc=1&_rdr"
+              target="_blank"
+            >
+              <i class="fa-brands fa-facebook"></i> Facebook</a
+            >
+          </div>
+          <div class="instagram">
+            <a href="https://www.instagram.com/" target="_blank"
+              ><i class="fa-brands fa-instagram"></i> Instagram</a
+            >
+          </div>
+        </div>
+        <div class="right">
+          <h2>Contact Us</h2>
+          <p>
+            <span><i class="fa-solid fa-phone"></i></span> +885 877 777 77
+          </p>
+          <p><i class="fa-solid fa-square-envelope"></i> booksweb@gamil.com</p>
+          <p><i class="fa-brands fa-telegram"></i> +885 877 777 77</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Your SheetDB API URL
+      const SHEETDB_API_URL = "https://sheetdb.io/api/v1/7q1h9g1523xxd";
+
+      // Store all books fetched from the sheet
+      let allBooks = [];
+      let displayedBooks = 10; // Number of books to display initially
+      const booksPerPage = 10; // Number of books to load each time "See More" is clicked
+
+      // Fetch books from Google Sheet
+      async function fetchBooks() {
+        try {
+          const response = await fetch(SHEETDB_API_URL);
+          const data = await response.json();
+          allBooks = data; // Store all books
+
+          // Filter books with type "Khmer"
+          allBooks = allBooks.filter((book) => {
+            return book.type && book.type.toLowerCase() === "qq"; // Filter books with type "Khmer"
+          });
+
+          renderBooks(allBooks.slice(0, displayedBooks)); // Render initial set of books
+        } catch (error) {
+          console.error("Error fetching books:", error);
+          alert("Failed to fetch books. Please try again.");
+        }
+      }
+
+      // Render books in the container
+      function renderBooks(books) {
+        const booksContainer = document.getElementById("booksContainer");
+        booksContainer.innerHTML = ""; // Clear existing content
+
+        if (books.length === 0) {
+          // If no books are found, display a message
+          booksContainer.innerHTML = `<p class="no-books-message">No books found matching your search.</p>`;
+          return;
+        }
+
+        // Loop through the books and create book cards
+        books.forEach((book) => {
+          const bookCard = document.createElement("div");
+          bookCard.className = "book-card";
+          bookCard.innerHTML = `
+            <div class="book-image">
+              <img src="${book.image || "../../picforweb/book.jpg"}" alt="${
+            book.title
+          }" />
+            </div>
+            <div class="book-details cc1">
+              <h3 class="book-title">${book.title || "No Title"}</h3>
+              <p class="book-author">By ${book.author || "Unknown Author"}</p>
+              <div class="book-rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <span>(245 reviews)</span>
+              </div>
+              <p class="book-description">${
+                book.description || "No description available."
+              }</p>
+              <a href="${
+                book.link || "#"
+              }" target="_blank" class="add-to-cart-btn cc goToReadBtn">
+                <i class="fa-solid fa-book"></i> GO to Read
+              </a>
+            </div>
+          `;
+          booksContainer.appendChild(bookCard); // Add the card to the container
+        });
+
+        // Add the show functionality to the newly created book cards
+        addShowFunctionality();
+
+        // Show or hide the "See More" button based on the number of books
+        const seeMoreButton = document.getElementById("seeMoreButton");
+        if (displayedBooks >= allBooks.length) {
+          seeMoreButton.style.display = "none"; // Hide the button if all books are displayed
+        } else {
+          seeMoreButton.style.display = "block"; // Show the button if there are more books to display
+        }
+      }
+
+      // Function to add the show functionality to book cards
+      function addShowFunctionality() {
+        const cards = document.querySelectorAll(".book-card");
+        cards.forEach((card) => {
+          card.addEventListener("click", () => {
+            const isCurrentlyShown = card.classList.contains("show");
+
+            cards.forEach((c) => c.classList.remove("show"));
+            document
+              .querySelectorAll(".book-image")
+              .forEach((img) => img.classList.remove("show"));
+
+            if (!isCurrentlyShown) {
+              card.classList.add("show");
+              document.body.style.overflow = "hidden";
+              const image = card.querySelector(".book-image");
+              if (image) image.classList.add("show");
+            } else {
+              document.body.style.overflow = "";
+            }
+          });
+        });
+      }
+
+      // Load more books when "See More" is clicked
+      function loadMoreBooks() {
+        displayedBooks += booksPerPage; // Increase the number of displayed books
+        renderBooks(allBooks.slice(0, displayedBooks)); // Render the updated set of books
+      }
+
+      // Add event listener for "See More" button
+      document
+        .getElementById("seeMoreButton")
+        .addEventListener("click", loadMoreBooks);
+
+      // Fetch and display books when the page loads
+      window.onload = fetchBooks;
+    </script>
+  </body>
+</html>

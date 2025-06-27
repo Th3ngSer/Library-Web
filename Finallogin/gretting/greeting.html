@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookWeb - Welcome</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/353aaa4da4.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        background-color: #080707;
+        color: #fff; /* Changed text color to white for better contrast */
+      }
+
+      /* Header */
+      header {
+        background: #2c3e50;
+        color: #fff;
+        padding: 20px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header h1 {
+        font-size: 3rem;
+      }
+
+      .login-dropdown {
+        position: relative;
+      }
+
+      .login-dropdown button {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 10px 20px;
+        transition: background 0.3s ease;
+      }
+
+      .login-dropdown button:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+      }
+
+      .login-dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .login-dropdown-content a {
+        display: block;
+        padding: 10px 20px;
+        color: #333;
+        text-decoration: none;
+        transition: background 0.3s ease;
+      }
+
+      .login-dropdown-content a:hover {
+        background: #f0f0f0;
+      }
+
+      .login-dropdown:hover .login-dropdown-content {
+        display: block;
+      }
+
+      /* Hero Section */
+      .hero {
+        background-image: url("../../picBook/backcrud3.avif"); /* Add your hero image here */
+        background-size: cover;
+        background-position: center;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* .hero-content {
+        margin-bottom: 400px;
+        animation: fadeInUp 1.5s;
+        z-index: 1;  
+      } */
+
+      .hero-content {
+        margin-bottom: 400px;
+        animation: slideInOut 10s 1; /* Adjust timing as needed */
+        z-index: 1; /* Ensure text is above floating books */
+        position: absolute; /* Position the text absolutely within the hero */
+        white-space: nowrap; /* Prevent text from wrapping */
+      }
+
+      @keyframes slideInOut {
+        0% {
+          transform: translateX(-100%);
+        }
+        /* 10% {
+          transform: translateX(0);
+        } */
+        /* 50% {
+          transform: translateX(0);  
+        } */
+        20% {
+          transform: translateX(100%);
+        }
+
+        40% {
+          transform: translateX(0%);
+        }
+      }
+
+      .hero h2 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        opacity: 0.9;
+      }
+
+      /* Floating Book Animation */
+      .floating-book {
+        position: absolute;
+        bottom: 150px;
+        width: 200px; /* Adjusted size for better spacing */
+        animation: float 6s infinite ease-in-out;
+        border-radius: 10px;
+      }
+
+      .floating-book:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .floating-book:nth-child(2) {
+        left: 30%;
+        animation-delay: 2s;
+      }
+
+      .floating-book:nth-child(3) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+
+      .floating-book:nth-child(4) {
+        left: 70%;
+        animation-delay: 1s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      /* Book Display Section */
+      .book-display {
+        padding: 60px 20px;
+        background: #121111;
+        text-align: center;
+      }
+
+      .book-display h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        color: #2c3e50;
+      }
+
+      .book-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .book-item {
+        background: #f0f0f0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        aspect-ratio: 2/3; /* Ensures consistent width and height ratio */
+      }
+
+      .book-item:hover {
+        transform: translateY(-10px);
+      }
+
+      .book-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures images fill the container */
+        display: block;
+      }
+
+      .book-item p {
+        padding: 15px;
+        font-size: 1.1rem;
+        color: #333;
+      }
+
+      /* Footer Styling */
+      /* Footer Styling */
+      .footer {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 40px 0 20px;
+        font-family: Arial, sans-serif;
+        text-align: center; /* Center-align all text */
+      }
+
+      .container-width {
+        max-width: 2048px;
+
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .foot_container {
+        display: flex;
+        justify-content: center; /* Center the container horizontally */
+        flex-wrap: wrap;
+        height: 130px;
+        gap: 20px;
+      }
+
+      .left,
+      .mid,
+      .right {
+        flex: 1;
+        min-width: 250px;
+        margin-bottom: 20px;
+        text-align: center; /* Center-align text within each section */
+      }
+
+      .left .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #3498db;
+      }
+
+      .left .tagline {
+        font-size: 14px;
+        color: #bdc3c7;
+        margin-top: 10px;
+      }
+
+      .mid h2,
+      .right h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #3498db;
+      }
+
+      .social-links a,
+      .contact-info p {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center-align links and contact info */
+        color: #ecf0f1;
+        text-decoration: none;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .social-links a i,
+      .contact-info p i {
+        margin-right: 10px;
+        font-size: 18px;
+      }
+
+      .social-links a:hover,
+      .contact-info p:hover {
+        color: #3498db;
+        transition: color 0.3s ease;
+      }
+
+      .copyright {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #34495e;
+        font-size: 14px;
+        color: #bdc3c7;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .foot_container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .social-links a,
+        .contact-info p {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-container">
+        <h1>BookWeb</h1>
+        <div class="login-dropdown">
+          <button>Read</button>
+          <div class="login-dropdown-content">
+            <a href="../loginGuest/GuestLoing.html">User Login</a>
+            <a href="../loginAdmin/adminLogin.html">Admin Login</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="../../picBook/thavkae.png"></a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Welcome to BookWeb</h2>
+        <p>
+          She smile while He was reading her favorite book from this BookWeb
+        </p>
+      </div>
+      <!-- Floating Book Animation -->
+      <img
+        src="../../picBook/porsvay.png"
+        alt="Floating Book"
+        class="floating-book"
+      />
+      <img
+        src="../../picBook/book2.png"
+        alt="Floating Book"
+        class="floating-book"
+      />
+      <img
+        src="../../picBook/15year.png"
+        alt="Floating Book"
+        class="floating-book"
+      />
+      <img
+        src="../../picBook/book3.png"
+        alt="Floating Book"
+        class="floating-book"
+      />
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="foot_container container-width">
+        <div class="left">
+          <p class="logo">BookWEB</p>
+          <p class="tagline">Enjoy your reading With BookWeb</p>
+        </div>
+        <div class="mid">
+          <h2>Follow Us</h2>
+          <div class="social-links">
+            <a
+              href="https://web.facebook.com/Cristiano/?_rdc=1&_rdr"
+              target="_blank"
+            >
+              <i class="fa-brands fa-facebook"></i> Facebook
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+              <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a href="https://twitter.com/" target="_blank">
+              <i class="fa-brands fa-twitter"></i> Twitter
+            </a>
+          </div>
+        </div>
+        <div class="right">
+          <h2>Contact Us</h2>
+          <div class="contact-info">
+            <p><i class="fa-solid fa-phone"></i> +885 877 777 77</p>
+            <p>
+              <i class="fa-solid fa-square-envelope"></i> booksweb@gmail.com
+            </p>
+            <p><i class="fa-brands fa-telegram"></i> +885 877 777 77</p>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2024 BookWEB for you girl</p>
+      </div>
+    </div>
+  </body>
+</html>

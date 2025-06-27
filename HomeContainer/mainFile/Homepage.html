@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booktest</title>
+    <link rel="stylesheet" href="../../HomeContainer/CSSFolder/Maincss.css" />
+    <link rel="stylesheet" href="../../HomeContainer/CSSFolder/show.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/353aaa4da4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main>
+      <section class="hero-section container-width">
+        <header>
+          <div class="nav-head">
+            <div class="bookWeb">BookWeb</div>
+            <div class="nav-items">
+              <a href="#" class="active">Home</a>
+              <a href="../newArr/newArr.html">New Arrivals</a>
+              <a href="../about/about.html">About Us</a>
+              <!-- <span class="icon-nav">
+                <a href="pf.html">
+                  <i class="fa-solid fa-user"></i>
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </header>
+        <div class="b_section">
+          <h1>Find Your Favorite Book to Read</h1>
+          <div class="search-container">
+            <div class="search-box">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by title or author"
+              />
+              <select id="searchCategory">
+                <option value="all">All Book</option>
+                <option value="fiction">History</option>
+                <option value="non-fiction">Comic</option>
+                <option value="science">Science</option>
+                <option value="history">Khmer</option>
+              </select>
+              <button id="searchButton">Search Books</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="add container-width">Enjoy Your Reading</div>
+      <div class="bc_card container-width" id="cccard">
+        <section class="books-container" id="booksContainer">
+          <!-- Book cards will be dynamically added here -->
+        </section>
+      </div>
+      <div class="seeMore">
+        <button id="seeMoreButton">See More</button>
+      </div>
+    </main>
+
+    <div class="footer">
+      <div class="foot_container container-width">
+        <div class="left">
+          <p>BookWEB</p>
+        </div>
+        <div class="mid">
+          <h2>Social media</h2>
+          <div class="facebook">
+            <a
+              href="https://web.facebook.com/Cristiano/?_rdc=1&_rdr"
+              target="_blank"
+            >
+              <i class="fa-brands fa-facebook"></i> Facebook</a
+            >
+          </div>
+          <div class="instagram">
+            <a href="https://www.instagram.com/" target="_blank"
+              ><i class="fa-brands fa-instagram"></i> Instagram</a
+            >
+          </div>
+        </div>
+        <div class="right">
+          <h2>Contact Us</h2>
+          <p>
+            <span><i class="fa-solid fa-phone"></i></span> +885 877 777 77
+          </p>
+          <p><i class="fa-solid fa-square-envelope"></i> booksweb@gamil.com</p>
+          <p><i class="fa-brands fa-telegram"></i> +885 877 777 77</p>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2024 BookWEB for you girl</p>
+    </div>
+
+    <script src="home.js"></script>
+    <script src="category.js"></script>
+  </body>
+</html>
